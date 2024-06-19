@@ -7,9 +7,9 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Rodrigo A. Lobos"
+title                    : "Yongli He"
 title_separator          : "-"
-name                     : &name "Rodrigo A. Lobos"
+name                     : &name "Yongli He"
 description              : &description "personal description"
 url                      : https://yonglihe23.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -80,7 +80,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Rodrigo A. Lobos"
+  name             : "Yongli He"
   avatar           : "IMG_0016.JPG" #"pic_rl_scaled579.jpg"
   bio              : "Postdoctoral Researcher at University of Michigan <b>rlobos@umich.edu </b>"
   location         : "Ann Arbor, MI"
