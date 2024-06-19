@@ -82,12 +82,12 @@ analytics:
 author:
   name             : "Yongli He"
   avatar           : "IMG_0016.JPG" #"pic_rl_scaled579.jpg"
-  bio              : "Postdoctoral Researcher at University of Michigan <b>rlobos@umich.edu </b>"
+  bio              : "PhD student at University of Michigan" #"Postdoctoral Researcher at University of Michigan <b>rlobos@umich.edu </b>"
   location         : "Ann Arbor, MI"
   employer         :
   pubmed           :
-  googlescholar    : "https://scholar.google.com/citations?user=J7WSE60AAAAJ&hl=en&oi=ao"
-  email            : #"rlobos@usc.edu"
+  googlescholar    : "https://scholar.google.com/citations?user=w7akITEAAAAJ&hl=en" #"https://scholar.google.com/citations?user=J7WSE60AAAAJ&hl=en&oi=ao"
+  email            : "yonglihe@umich.edu" #"rlobos@usc.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
