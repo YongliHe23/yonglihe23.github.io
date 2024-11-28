@@ -9,5 +9,8 @@ tags:
   - Mixed-Binomial Model
 ---
 
->This tutorial is based on my presentation at the [FMRI Lab](https://fmri.research.umich.edu/) meeting on November 26, 2024. You can find the pdf of the talk [here]().
+>This tutorial is based on my presentation at the [FMRI Lab](https://fmri.research.umich.edu/) meeting on November 26, 2024. You can find the pdf of the talk [here](https://github.com/YongliHe23/yonglihe23.github.io/blob/master/files/fMRI-GroupMtg-Nov26-2024-YongliHe.pdf).
+
+
+
 
