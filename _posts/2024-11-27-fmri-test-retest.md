@@ -44,10 +44,20 @@ Now, let's introduce a few quantities that are essential for this model. The fir
 <center>$
  R_v=\text{Number of times out of M repetitions a voxel} v \text{is classified active}
 $</center> <br>
-Assume $R_v$ is drawn from a mixture of two binomial distributions:
+Assume $R_v$ is drawn from a mixture of two [binomial distributions](https://en.wikipedia.org/wiki/Binomial_distribution):
+<center>$
+ R_v ~ \lambda \cdot \text{Binomial}(M,p_A)+ (1-\lambda)\cdot \text{Binominal}(M,p_I),
+$</center>
+where $\lambda$ is the proportion of truly active voxels, $p_A$ and $p_I$ are the TPR and FPR, respectively. Due to independence assumption, the likelihood function of parameters $p_A, p_I, \lambda$, only depends on the counts:
+<center>$
+n_k=\sum_{v\in V} \mathbb{I}_{R_v=k}= Number of voxels that are classified active k out of M repititions.
+$</center>
+All the information of the raw reliability map and thus the inference can be reduced to a simpler quantity, called the histogram vector: $\mathbf{n}=(n_0,n_1,...,n_M)$. The log of the posterier likelihood function of the parameters to be estimated $p_A, p_I, \lambda$ is:
+<center>$
+  l(p_A,p_I,\lambda | \mathbf{n})=ln \mathbb{P}(p_A,p_I,\lambda | \mathbf{n})\cong \sum_{k=0}^{M}n_k ln[\lambda p_A^k(1-p_A)^{(M-k)}+(1-\lambda)p_I^k(1-p_I)^{(M-k)}].
+$</center>
+You may recognize that the term inside the logarithm resembles the pmf of a binomial distribution, except that we have dropped the combinatorial factors since they are irrelevant to the parameters.  We then estimate the parameters by the method of **Maximum Likelihood (ML)**.
 
-(TBC)
----
 
 
 
