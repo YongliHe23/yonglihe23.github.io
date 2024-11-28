@@ -17,7 +17,7 @@ One of the methods for this purpose is to calculate the [receiver operating char
 
 To get an ROC curve for a, say, t-score map, we sweep the threshold value, for each threshold, calculate (FPR,TPR), get a dot in the ROC curve. 
 ![roc](/images/roc_curves.png "ROC curves")
-<center>*Figure 1: ROC curves*</center>
+<center>**Figure 1: ROC curves**</center>
 
 The definition of false positive rate (FPR) and true positive rate (TPR) are as follow: <br>
 <center>$
@@ -28,7 +28,7 @@ $</center> <br>
 $</center>
 Intuitively, you can view FPR and TPR as "false alarm" and "hit", respectively. 
 
->**Q**:Which one is better: guess all positive, or guess all negative? (suppose in fMRI, proportion of truly activated voxels is far less than 1/2)
+>**Q**:Which one is better: guess all positive, or guess all negative? (suppose in fMRI, proportion of truly activated voxels is far less than 1/2)<br>
 >**A**: They are the same! Guessing all positive will be the top-right corner in the ROC plot where as guessing all negative will be at the bottom-left corner. They corresponding to random classifiers with positive probability $\rho=1$ and $\rho=0$, respectively.
 
 A natural question is: **how to know the ground truth activation classification?** If we don't have the ground truth, we can not calculate FP, FN, TP, TN. One straightforward solution may be taking a long scan, with many cycles of the same task, then take the resultant high reliability activation as ground truth. This method is simple but comes with high cost. An alternative way is to use statistic model to estimate the ground truth. Here we introduce a model proposed by [Genovese, et al.]( https://doi.org/10.1002/mrm.1910380319), which I call the **mixed-binomial model**.
