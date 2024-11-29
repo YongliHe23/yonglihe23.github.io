@@ -74,6 +74,7 @@ Definition: $p_{Ak}(p_{Ik})$ is the probability that a truly active (inactive) v
 
 Suppose we have 6 voxels in a 1D space, their true labels are marked in **Figure 2**. The height of each arrow corresponds to the magnitude of the associated statistic measure, e.g., t-score, of each voxel. $K=6$ threshold levels are indicated by the red dashed lines. For the configuration shown in **Figure 2**, the values of $p_{Ak}$ and $p_{Ik}$ are listed in **Table 1**.
 |k       | 0 | 1 | 2   | 3   | 4   | 5   | 6  |
+|--------|---|---|-----|-----|-----|-----|----|
 |$p_{Ak}$| 0 | 0 | 1/5 | 1/5 | 2/5 | 1/5 | 0  |
 |$p_{Ik}$| 0 | 1 | 0   | 0   | 0   | 0   | 0  |
 
