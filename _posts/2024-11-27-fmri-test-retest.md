@@ -13,8 +13,8 @@ tags:
 
 In fMRI, we calculate statistic measures, e.g., t-, F-statstic, correlation coefficient, for each voxel to generate activation maps. Raw statistic maps are thresholded give labels to voxels with either active or inactive. In an ideal world, the classification of voxels into active/inactive would be invariant across different trials of the same task. In that case, the classification we yield from thresholding the statistic measure is the ground truth of activation. However, there is always variation of activation maps across different trials of experiment. This is due to, e.g., movement, physiological noise, ambient noise, and most importantly, the neural activity of the subject is not temporal shift invariant. Therefore, it is important to quantify the (test-retest) reliability of the activation maps we get from the acquired fMRI signals. 
 
-ROC Curves
----
+# ROC Curves
+
 One of the methods for this purpose is to calculate the [receiver operating characteristic (ROC)](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) curve. 
 
 To get an ROC curve for a, say, t-score map, we sweep the threshold value, for each threshold, calculate (FPR,TPR), get a dot in the ROC curve. 
@@ -35,8 +35,10 @@ Intuitively, you can view FPR and TPR as "false alarm" and "hit", respectively.
 
 A natural question is: **how to know the ground truth activation classification?** If we don't have the ground truth, we can not calculate FP, FN, TP, TN. One straightforward solution may be taking a long scan, with many cycles of the same task, then take the resultant high reliability activation as ground truth. This method is simple but comes with high cost. An alternative way is to use statistic model to estimate the ground truth. Here we introduce a model proposed by [Genovese, et al.]( https://doi.org/10.1002/mrm.1910380319), which I call the **mixed-binomial model**.
 
-Mixed-binomial Model
----
+# Mixed-binomial Model
+
+## Vanilla Case
+
 The mixed-binomial model entails $M\geq 4$ repetitions of the same fMRI experiment. It contains the following major assumptions:
 - The behavior of voxels across different trials is independent and identical distribution (i.i.d.);
 - The behavior of each voxel is independent of other voxels;
@@ -62,9 +64,23 @@ All the information of the raw reliability map and thus the inference can be red
 $</center><br>
 You may recognize that the term inside the logarithm resembles the pmf of a binomial distribution, except that we have dropped the combinatorial factors since they are irrelevant to the parameters.  We then estimate the parameters by the method of **Maximum Likelihood (ML)**. This can be easily done by matlab's optimization toolbox.
 
-Dependent Likelihood Model
---
-The above 
+## Dependent Likelihood Model
+
+The above model is powerful for estimating the reliability of a single classifier. However, in fMRI analysis, we use the same statistic maps (e.g., t-score) to generate a series of reliability maps by selecting 𝐾 different thresholds $\tau_0 <\tau_1<...<\tau_{K-1}$. 
+
+These reliability maps are not independent. They should share a common $\lambda$, while at each $\tau_k$, the points $(p__I^{(k)},p_A^{(k)})$ are different, $k=0,...,K-1$. So instead of estimating $3K$ different parameters, we estimate $2K+1$ parameters in total.
+
+Definition: $p_{Ak}(p_{Ik})$ is the probability that a truly active (inactive) voxel is classified active at $k$ of the threshold levels (it must be the first k thresholds given that the thresholds are arranged in increased order), for $k=0,...,K$. Now I know this quantity could be a bit involved. To help you understand the concept, I prepared an exercise.
+
+Suppose we have 6 voxels in a 1D space, their true labels are marked in **Figure 2**. The height of each arrow corresponds to the magnitude of the associated statistic measure, e.g., t-score, of each voxel. $K=6$ threshold levels are indicated by the red dashed lines. For the configuration shown in **Figure 2**, the values of $p_{Ak}$ and $p_{Ik}$ are listed in **Table 1**.
+|k       | 0 | 1 | 2   | 3   | 4   | 5   | 6  |
+|$p_{Ak}$| 0 | 0 | 1/5 | 1/5 | 2/5 | 1/5 | 0  |
+|$p_{Ik}$| 0 | 1 | 0   | 0   | 0   | 0   | 0  |
+
+
+
+
+
 
 
 
