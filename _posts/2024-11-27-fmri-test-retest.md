@@ -68,7 +68,7 @@ You may recognize that the term inside the logarithm resembles the pmf of a bino
 
 The above model is powerful for estimating the reliability of a single classifier. However, in fMRI analysis, we use the same statistic maps (e.g., t-score) to generate a series of reliability maps by selecting 𝐾 different thresholds $\tau_0 <\tau_1<...<\tau_{K-1}$. 
 
-These reliability maps are not independent. They should share a common $\lambda$, while at each $\tau_k$, the points $(p__I^{(k)},p_A^{(k)})$ are different, $k=0,...,K-1$. So instead of estimating $3K$ different parameters, we estimate $2K+1$ parameters in total.
+These reliability maps are not independent. They should share a common $\lambda$, while at each $\tau_k$, the points $(p_I^{(k)},p_A^{(k)})$ are different, $k=0,...,K-1$. So instead of estimating $3K$ different parameters, we estimate $2K+1$ parameters in total.
 
 Definition: $p_{Ak}(p_{Ik})$ is the probability that a truly active (inactive) voxel is classified active at $k$ of the threshold levels (it must be the first k thresholds given that the thresholds are arranged in increased order), for $k=0,...,K$. Now I know this quantity could be a bit involved. To help you understand the concept, I prepared an exercise.
 
