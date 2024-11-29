@@ -25,7 +25,7 @@ The definition of false positive rate (FPR) and true positive rate (TPR) are as 
 $</center> <br>
 <center>$
  \text{TPR}=\frac{\text{TruePositive}}{\text{FalseNegative+TruePositive}} \triangleq p_A
-$</center>
+$</center><br>
 Intuitively, you can view FPR and TPR as "false alarm" and "hit", respectively. 
 
 >**Q**:Which one is better: guess all positive, or guess all negative? (suppose in fMRI, proportion of truly activated voxels is far less than 1/2)<br>
@@ -40,14 +40,14 @@ The mixed-binomial model entails $M\geq 4$ repetitions of the same fMRI experime
 
 These assumptions are obviously not true in real life. For example, given the clustering nature of activation voxels, the neighbors of a active voxel will have higher probability to be active, thus the second assumption is not true. However, the misfit these assumptions introduce should be negligible in most applications. Weaker assumptions could be made to better fit the reality, interested reader can refer to [the original paper](https://doi.org/10.1002/mrm.1910380319).
 
-Now, let's introduce a few quantities that are essential for this model. The first one is called the *raw reliability map* $R_v$. It is defined as:
+Now, let's introduce a few quantities that are essential for this model. The first one is called the *raw reliability map* $R_v$. It is defined as:<br>
 <center>$
  R_v=\text{Number of times out of M repetitions a voxel} v \text{is classified active}
 $</center> <br>
-Assume $R_v$ is drawn from a mixture of two [binomial distributions](https://en.wikipedia.org/wiki/Binomial_distribution):
+Assume $R_v$ is drawn from a mixture of two [binomial distributions](https://en.wikipedia.org/wiki/Binomial_distribution):<br>
 <center>$
  R_v ~ \lambda \cdot \text{Binomial}(M,p_A)+ (1-\lambda)\cdot \text{Binominal}(M,p_I),
-$</center>
+$</center><br>
 where $\lambda$ is the proportion of truly active voxels, $p_A$ and $p_I$ are the TPR and FPR, respectively. Due to independence assumption, the likelihood function of parameters $p_A, p_I, \lambda$, only depends on the counts:
 <center>$
 n_k=\sum_{v\in V} \mathbb{I}_{R_v=k}= Number of voxels that are classified active k out of M repititions.
