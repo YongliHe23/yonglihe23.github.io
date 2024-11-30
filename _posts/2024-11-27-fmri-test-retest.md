@@ -85,14 +85,15 @@ Suppose we have 6 voxels in a 1D space, their true labels are marked as "A/I" in
 Note that $\sum_{k=0}^{K}p_{Ak}=1, \sum_{k=0}^{K}p_{Ik}=1$. Now define $n_{\mathbf{t}}$ for $\mathbf{t}\triangleq(t_0,...,t_K)$, to be number of voxels classified active at k threshold levels $t_k$ times (out of M) for each $k=0,...,K$. Then the dependent likelihood function is:<br>
 <center>$
   l_{dep}(\mathbf{p_A},\mathbf{p_I},\lambda | \mathbf{n})=\sum_{\mathbf{t}}n_{\mathbf{t}}ln[\lambda \prod_{k=0}^{K}p_{Ak}^{t_k}+(1-\lambda)\prod_{k=0}^{K}p_{Ik}^{t_k}]
-$</center>
+$</center><br>
+
 The product terms and the outer summation is due to the independent assumptions we made at the beginning. The outer summation sums all the voxels according to the partition given by $n_{\mathbf{t}}$ (voxels with same $n_{\mathbf{t}}$ are grouped together), though in implementation, we simply need to traverse the summation over every voxels. Again, by using ML estimation we can solve the optimal $\mathbf{p_A}=(p_{A0},...,p_{AK}),\mathbf{p_I}=(p_{I0},...,p_{IK})$ and $\lambda$. The actual parameters of interest, $p_A^{(k)}$, i.e., the probability of a truly active voxel being classified active at the $k\text{-th}$ threshold level is $p_A^{(k)}=\sum_{j=k}^{K}p_{Aj}$. This is because, any voxel that is classified k or more than k times out $K$ thresholds must be classified active in the $k\text{-th}$ threshold (since the thresholds are in increasing order), therefore should be included in $p_A^{(k)}$. Similar for $p_{I}^{(k)}=\sum_{j=k}^{K}p_{Ij}$. 
 
 Here is an examplary ROC plot generated accrording to the algorithm described above.
 ![roc_example](/images/ROC_curves_fine.png "ROC Plot Example")
 <center>
-  **Figure 3: ROC plot example**
-</center>
+  <b>Figure 3: ROC plot example</b>
+</center><br>
 
 The numbers indicate the thresholds. The thresholds in the dashed circles are the optimal thresholds that maximize a (subjectively chosen) criterion function $c(\tau)=\lambda p_A(\tau)+(1-\lambda)(1-p_I(\tau))$. 
 
