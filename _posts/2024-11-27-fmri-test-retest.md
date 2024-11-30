@@ -89,8 +89,12 @@ $</center>
 The product terms and the outer summation is due to the independent assumptions we made at the beginning. The outer summation sums all the voxels according to the partition given by $n_{\mathbf{t}}$ (voxels with same $n_{\mathbf{t}}$ are grouped together), though in implementation, we simply need to traverse the summation over every voxels. Again, by using ML estimation we can solve the optimal $\mathbf{p_A}=(p_A0,...,p_AK),\mathbf{pI}=(pI0,...,pIK)$ and $\lambda$. The actual parameters of interest, $p_A^{(k)}$, i.e., the probability of a truly active voxel being classified active at the $k\text{-th}$ threshold level is $p_A^{(k)}=\sum_{j=k}^{K}p_{Aj}$. This is because, any voxel that is classified k or more than k times out $K$ thresholds must be classified active in the $k\text{-th}$ threshold (since the thresholds are in increasing order), therefore should be included in $p_A^{(k)}$. Similar for $p_{I}^{(k)}=\sum_{j=k}^{K}p_{Ij}$. 
 
 Here is an examplary ROC plot generated accrording to the algorithm described above.
+![roc_example](/images/ROC_curves_fine.png "ROC Plot Example")
+<center>
+  **Figure 3: ROC plot example**
+</center>
 
-
+The numbers indicate the thresholds. The thresholds in the dashed circles are the optimal thresholds that maximize a (subjectively chosen) criterion function $c(\tau)=\lambda p_A(\tau)+(1-\lambda)(1-p_I(\tau))$. 
 
 
 
