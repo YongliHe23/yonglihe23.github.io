@@ -19,7 +19,7 @@ One of the methods for this purpose is to calculate the [receiver operating char
 
 To get an ROC curve for a, say, t-score map, we sweep the threshold value. For each threshold, calculate (FPR,TPR), get a dot in the ROC curve. 
 ![roc](/images/roc_curves.png "ROC curves")
-<center><b>Figure 1: ROC curves</b></center>
+<center><b>Figure 1: ROC curves</b></center><br>
 
 The definition of false positive rate (FPR) and true positive rate (TPR) are as follow: <br>
 <center>$
@@ -31,7 +31,7 @@ $</center><br>
 Intuitively, you can view FPR and TPR as "false alarm" and "hit", respectively. 
 
 >**Q**:Which one is better: guess all positive, or guess all negative? (suppose in fMRI, proportion of truly activated voxels is far less than 1/2)<br>
->**A**: They are the same! Guessing all positive will be the top-right corner in the ROC plot where as guessing all negative will be at the bottom-left corner. They corresponding to random classifiers with positive probability $\rho=1$ and $\rho=0$, respectively.
+>**A**: They are the same! Guessing all positive will be the top-right corner in the ROC plot whereas guessing all negative will be at the bottom-left corner. They corresponding to random classifiers with positive probability $\rho=1$ and $\rho=0$, respectively.
 
 A natural question is: **how to know the ground truth activation classification?** If we don't have the ground truth, we can not calculate FP, FN, TP, TN. One straightforward solution may be taking a long scan, with many cycles of the same task, then take the resultant high reliability activation as ground truth. This method is simple but comes with high cost. An alternative way is to use statistic model to estimate the ground truth. Here we introduce a model proposed by [Genovese, et al.]( https://doi.org/10.1002/mrm.1910380319), which I call the **mixed-binomial model**.
 
@@ -73,10 +73,10 @@ These reliability maps are not independent. They should share a common $\lambda$
 Definition: $p_{Ak}(p_{Ik})$ is the probability that a truly active (inactive) voxel is classified active at $k$ of the threshold levels (it must be the first k thresholds given that the thresholds are arranged in increased order), for $k=0,...,K$. Now I know this quantity could be a bit involved. To help you understand the concept, I prepared an exercise.
 
 ![exercise](/images/Mixed-Binomial-Model-Exercise.png "Exercise")
-<center>**Figure 2: Exercise**</center>
+<center><b>Figure 2: Exercise</b></center><br>
 
-Suppose we have 6 voxels in a 1D space, their true labels are marked in **Figure 2**. The height of each arrow corresponds to the magnitude of the associated statistic measure, e.g., t-score, of each voxel. $K=6$ threshold levels are indicated by the red dashed lines. For the configuration shown in **Figure 2**, the values of $p_{Ak}$ and $p_{Ik}$ are listed in **Table 1**. <br>
-
+Suppose we have 6 voxels in a 1D space, their true labels are marked as "A/I" in **Figure 2**. The height of each arrow corresponds to the magnitude of the associated statistic measure, e.g., t-score, of each voxel. $K=6$ threshold levels are indicated by the red dashed lines. For the configuration shown in **Figure 2**, the values of $p_{Ak}$ and $p_{Ik}$ are listed in **Table 1**. <br>
+<center>Table 1</center>
 |k       | 0 | 1 | 2   | 3   | 4   | 5   | 6  |
 |--------|---|---|-----|-----|-----|-----|----|
 |$p_{Ak}$| 0 | 0 | 1/5 | 1/5 | 2/5 | 1/5 | 0  |
