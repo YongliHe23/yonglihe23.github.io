@@ -20,7 +20,6 @@ One of the methods for this purpose is to calculate the [receiver operating char
 To get an ROC curve for a, say, t-score map, we sweep the threshold value. For each threshold, calculate (FPR,TPR), get a dot in the ROC curve. 
 ![roc](/images/roc_curves.png "ROC curves")
 <center><b>Figure 1: ROC curves</b></center><br>
-
 The definition of false positive rate (FPR) and true positive rate (TPR) are as follow: <br>
 <center>$
  \text{FPR}=\frac{\text{FalsePositive}}{\text{FalsePositive+TrueNegative}}\triangleq p_I
