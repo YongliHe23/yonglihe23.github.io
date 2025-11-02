@@ -26,7 +26,8 @@ author_profile: true
 
 <b>Conference</b>
 ======
+* <b>Y. He</b>, L. Hernandez-Garcia, D.C. Noll, J.-F. Nielsen,  <br>[Investigating the Impact of Spatially Selective Signal Suppression on BOLD fMRI Reliability](https://archive.ismrm.org/2025/2334.html)<br><em>International Society for Magnetic Resonance in Medicine Annual Conference & Exhibition, 2025. (Digital Poster).</em>
 
-* <b>Y. He</b>, R. Fung, J. -F. Nielsen,  <br>[High-Accuracy Ultra-short Inner-Volume Saturation Pulse for 3D Steady-State Imaging](https://submissions.mirasmart.com/ISMRM2024/ViewSubmissionTeaser.aspx)<br><em>International Society for Magnetic Resonance in Medicine Annual Conference & Exhibition, 2024. (In press).</em>
+* <b>Y. He</b>, R. Fung, J. -F. Nielsen,  <br>[High-Accuracy Ultra-short Inner-Volume Saturation Pulse for 3D Steady-State Imaging](https://archive.ismrm.org/2025/2334.html)<br><em>International Society for Magnetic Resonance in Medicine Annual Conference & Exhibition, 2024. (Digital Poster).</em>
 
 
