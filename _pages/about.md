@@ -8,8 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-[Curriculum Vitae (CV)](https://yonglihe23.github.io/files/CV_YongliHe_Jan2026.pdf)
-<!-- (https://yonglihe23.github.io/files/CV_YongliHe_Nov2025.pdf)
+[Curriculum Vitae (CV)](https://yonglihe23.github.io/files/CV_YongliHe_Aug2026.pdf)
+<!-- (https://yonglihe23.github.io/files/CV_YongliHe_Jan2026.pdf)
 -->
 
 
